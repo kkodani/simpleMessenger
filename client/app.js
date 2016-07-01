@@ -51,37 +51,13 @@ var SimpleMessenger = React.createClass({
 
   handleSubmit: function(e) {
     e.preventDefault();
-    // this.state.chatData.push(
-    //   <p key={this.state.chatData.length}>
-    //     {this.state.username}:
-    //     {this.state.text}
-    //   </p>
-    // );
 
     var roomChat = db.ref('db/chatlog/' + this.state.room);
     roomChat.push({
-      //id: Date.now(),
       username: this.state.username,
       text: this.state.text
     });
     this.setState({text: ''});
-    // $.ajax({
-    //   url: '/api/sendChat',
-    //   dataType: 'json',
-    //   type: 'POST',
-    //   data: {
-    //           text: this.state.text,
-    //           username: this.state.username,
-    //           room: this.state.room
-    //         },
-    //   cache: false,
-    //   success: function(data) {
-    //     this.setState({text: ''});
-    //   }.bind(this),
-    //   error: function(xhr, status, err) {
-    //     console.error(status, err.toString());
-    //   }.bind(this)
-    // });
   },
 
 
